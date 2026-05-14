@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深圳周边海边旅游攻略</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.8;
+        }
+        .hero {
+            background: linear-gradient(135deg, #0077b6, #00b4d8, #48cae4);
+            color: white;
+            text-align: center;
+            padding: 60px 20px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: #f5f7fa;
+            border-radius: 50% 50% 0 0;
+        }
+        .hero h1 { font-size: 2em; margin-bottom: 10px; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        .hero p { font-size: 1em; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+        .container { max-width: 750px; margin: 0 auto; padding: 20px 16px; }
+        .toc {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .toc h2 { font-size: 1.2em; margin-bottom: 16px; color: #0077b6; }
+        .toc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .toc-item {
+            display: block;
+            padding: 10px 14px;
+            background: #e8f4fd;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #0077b6;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .toc-item:hover { background: #0077b6; color: white; }
+        .place-card {
+            background: white;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .place-img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: contain;
+            display: block;
+            background: #f0f4f8;
+        }
+        .img-gallery {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+        .img-gallery img {
+            min-width: 100%;
+            scroll-snap-align: start;
+        }
+        .img-gallery::-webkit-scrollbar { height: 4px; }
+        .img-gallery::-webkit-scrollbar-thumb { background: #0077b6; border-radius: 4px; }
+        .img-hint {
+            text-align: center;
+            font-size: 0.75em;
+            color: #999;
+            padding: 4px 0;
+            background: #f8f8f8;
+        }
+        .place-header { padding: 20px 24px 10px; }
+        .place-header h2 { font-size: 1.4em; color: #0077b6; margin-bottom: 4px; }
+        .place-distance {
+            font-size: 0.85em;
+            color: #666;
+            background: #f0f0f0;
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 20px;
+        }
+        .place-body { padding: 10px 24px 24px; }
+        .section-title {
+            font-size: 1em;
+            font-weight: 600;
+            color: #0077b6;
+            margin: 16px 0 8px;
+            padding-left: 10px;
+            border-left: 3px solid #0077b6;
+        }
+        .tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+        .tag {
+            background: #e8f4fd;
+            color: #0077b6;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+        }
+        .tag.green { background: #e6f9e6; color: #2d8a2d; }
+        .tag.orange { background: #fff3e0; color: #e65100; }
+        .tag.purple { background: #f3e8fd; color: #7b1fa2; }
+        .tag.red { background: #fde8e8; color: #c62828; }
+        ul { padding-left: 20px; margin: 6px 0; }
+        li { margin: 4px 0; font-size: 0.9em; }
+        .warn { margin-top:10px;font-size:0.85em;color:#e65100;background:#fff3e0;padding:8px 12px;border-radius:8px; }
+        .rec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            font-size: 0.85em;
+        }
+        .rec-table th { background: #0077b6; color: white; padding: 10px; text-align: left; }
+        .rec-table td { padding: 10px; border-bottom: 1px solid #eee; }
+        .rec-table tr:nth-child(even) { background: #f8f9fa; }
+        .tips-card {
+            background: linear-gradient(135deg, #fff9c4, #fff3e0);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+        .tips-card h2 { color: #e65100; margin-bottom: 12px; }
+        .tips-card li { margin: 8px 0; }
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #999;
+            font-size: 0.8em;
+        }
+        .back-top {
+            display: block;
+            text-align: center;
+            padding: 10px;
+            color: #0077b6;
+            text-decoration: none;
+            font-size: 0.85em;
+        }
+        @media (max-width: 500px) {
+            .toc-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 1.6em; }
+            .place-header h2 { font-size: 1.2em; }
+        }
+    </style>
+</head>
+<body>
+<div class="hero">
+    <h1>🌊 深圳周边海边旅游攻略</h1>
+    <p>深圳100公里内 · 14个绝美海滩 · 吃住行玩全指南</p>
+</div>
+
+<div class="container">
+
+<div class="toc" id="top">
+    <h2>📍 目录导航（点击跳转）</h2>
+    <div class="toc-grid">
+        <a class="toc-item" href="#shenzhenwan">🌅 深圳湾公园</a>
+        <a class="toc-item" href="#dameisha">🏊 大梅沙</a>
+        <a class="toc-item" href="#xiaomeisha">🐬 小梅沙</a>
+        <a class="toc-item" href="#jiaochangwei">🏖 较场尾</a>
+        <a class="toc-item" href="#yangmeikeng">🚴 杨梅坑</a>
+        <a class="toc-item" href="#judiaosha">💎 桔钓沙</a>
+        <a class="toc-item" href="#guanhu">🎨 官湖村</a>
+        <a class="toc-item" href="#xichong">🏕 西涌</a>
+        <a class="toc-item" href="#dongchong">🥾 东涌</a>
+        <a class="toc-item" href="#xiaojingwan">✨ 小径湾</a>
+        <a class="toc-item" href="#xiayong">🌅 霞涌黄金海岸</a>
+        <a class="toc-item" href="#xunliaowan">⛱ 巽寮湾</a>
+        <a class="toc-item" href="#shuangyuewan">🌙 双月湾</a>
+        <a class="toc-item" href="#yanzhoudao">📷 盐洲岛</a>
+    </div>
+</div>
+
+<!-- ===== 深圳湾公园 ===== -->
+<div class="place-card" id="shenzhenwan">
+    <div class="img-gallery">
+        <img class="place-img" src="images/01-深圳湾公园/五一🏝️在深圳去哪儿玩？_2_阿知知_来自小红书网页版_副本.jpg" alt="深圳湾公园1">
+        <img class="place-img" src="images/01-深圳湾公园/五一🏝️在深圳去哪儿玩？_3_阿知知_来自小红书网页版_副本.jpg" alt="深圳湾公园2">
+        <img class="place-img" src="images/01-深圳湾公园/五一🏝️在深圳去哪儿玩？_6_阿知知_来自小红书网页版_副本.jpg" alt="深圳湾公园3">
+    </div>
+    <div class="img-hint">← 左右滑动查看更多图片 →</div>
+    <div class="place-header">
+        <h2>一、深圳湾公园</h2>
+        <span class="place-distance">📍 市中心内 · 地铁直达 · 免费</span>
+    </div>
+    <div class="place-body">
+        <div class="section-title">✅ 优点</div>
+        <div class="tag-list">
+            <span class="tag">深圳最美日落观赏点</span>
+            <span class="tag">滨海栈道全长13km</span>
+            <span class="tag">地铁直达</span>
+            <span class="tag">红树林+白鹭</span>
+            <span class="tag">免费无门票</span>
+            <span class="tag">骑行圣地</span>
+        </div>
+        <div class="section-title">🚗 交通</div>
+        <ul>
+            <li><b>地铁</b>：9号线"深圳湾公园"站D2出口（东区红树林方向）</li>
+            <li><b>地铁</b>：13号线（2025新开）可直达西区</li>
+            <li><b>公交</b>：M507路、M299路等多条线路</li>
+            <li><b>自驾</b>：周边有停车场，但周末较难找位</li>
+        </ul>
+        <div class="section-title">🗺 分区介绍</div>
+        <ul>
+            <li><b>东区（红树林方向）</b>：红树林生态长廊，观赏白鹭最佳，地铁9号线直达</li>
+            <li><b>中区</b>：北湾鹭港（千人大草坪）、日出露天剧场</li>
+            <li><b>西区（蛇口方向）</b>：流花山公园、婚庆公园，日落最美位置</li>
+        </ul>
+        <div class="section-title">🍽 美食</div>
+        <ul>
+            <li>公园内无餐饮，建议自带野餐</li>
+            <li>附近南山海岸城商圈（步行/骑行可达）</li>
+            <li>蛇口海上世界（海鲜、西餐、酒吧）</li>
+            <li>欢乐海岸（顺德菜、火锅、各类餐饮）</li>
+        </ul>
+        <div class="section-title">🎮 游玩项目</div>
+        <div class="tag-list">
+            <span class="tag green">骑行（租车方便）</span>
+            <span class="tag green">观日落</span>
+            <span class="tag green">观鸟赏白鹭</span>
+            <span class="tag green">跑步</span>
+            <span class="tag green">放风筝</span>
+            <span class="tag green">野餐</span>
+            <span class="tag green">遥望香港</span>
+            <span class="tag green">拍照打卡</span>
+        </div>
+        <div class="warn">⚠️ 注意：深圳湾是海湾观景，无沙滩不能下水游泳。适合散步骑行看海看日落，不适合戏水。</div>
+    </div>
+    <a class="back-top" href="#top">↑ 返回目录</a>
+</div>
+
+<!-- ===== 大梅沙 ===== -->
+<div class="place-card" id="dameisha">
+    <!-- 图片2：大梅沙 -->
+    <div class="img-gallery">
+        <img class="place-img" src="images/02-大梅沙/02.jpg" alt="大梅沙1">
+        <img class="place-img" src="images/02-大梅沙/03.jpg" alt="大梅沙2">
+    </div>
+    <div class="img-hint">← 滑动查看更多 →</div>
+    <div class="place-header">
+        <h2>二、大梅沙</h2>
+        <span class="place-distance">📍 距市中心约20km · 地铁8号线直达</span>
+    </div>
+    <div class="place-body">
+        <div class="section-title">✅ 优点</div>
+        <div class="tag-list">
+            <span class="tag">深圳最知名免费海滩</span>
+            <span class="tag">地铁8号线梅沙站直达</span>
+            <span class="tag">沙滩全长1800米</span>
+            <span class="tag">设施完善有救生员</span>
+            <span class="tag">适合全家</span>
+        </div>
+        <div class="section-title">🚗 交通</div>
+        <ul>
+            <li><b>地铁</b>：8号线「梅沙」站，步行即达</li>
+            <li><b>公交</b>：239路、308路、380B路、M465路</li>
+            <li><b>自驾</b>：导航"大梅沙海滨公园"</li>
+        </ul>
+        <div class="section-title">🏨 住宿</div>
+        <ul>
+            <li>京基喜来登酒店（紧邻沙滩，800-2000+/晚）</li>
+            <li>万科中心附近经济酒店（200-500元/晚）</li>
+            <li>周边民宿公寓</li>
+        </ul>
+        <div class="section-title">🍽 美食</div>
+        <ul>
+            <li>大梅沙商业街（各类快餐、饮品）</li>
+            <li>盐田海鲜街（地铁盐田墟站B出口附近，本地人去的老字号多）</li>
+            <li>奥特莱斯美食区</li>
+        </ul>
+        <div class="section-title">🎮 游玩项目</div>
+        <div class="tag-list">
+            <span class="tag green">免费游泳</span>
+            <span class="tag green">沙滩排球</span>
+            <span class="tag green">海滨栈道（大小梅沙段）</span>
+            <span class="tag green">日光浴</span>
+            <span class="tag green">儿童沙滩区</span>
+        </div>
+        <div class="warn">⚠️ 入园免费，现已无需预约入园；但5月1日-10月8日的周末和节假日开车前往需预约车辆（工作日不需要）。开园时间7:00-23:00。</div>
+    </div>
+    <a class="back-top" href="#top">↑ 返回目录</a>
+</div>
+
+<!-- ===== 小梅沙 ===== -->
+<div class="place-card" id="xiaomeisha">
+    <div class="img-gallery">
+        <img class="place-img" src="images/03-小梅沙/01.jpg" alt="小梅沙1">
+        <img class="place-img" src="images/03-小梅沙/02.jpg" alt="小梅沙2">
+        <img class="place-img" src="images/03-小梅沙/03.jpg" alt="小梅沙3">
+    </div>
+    <div class="img-hint">← 滑动查看更多 →</div>
+    <div class="place-header">
+        <h2>三、小梅沙</h2>
+        <span class="place-distance">📍 距市中心约25km · 地铁8号线直达</span>
+    </div>
+    <div class="place-body">
+        <div class="section-title">✅ 优点</div>
+        <div class="tag-list">
+            <span class="tag">2024年全新升级重开</span>
+            <span class="tag">水质优于大梅沙</span>
+            <span class="tag">"梅沙踏浪"深圳八景</span>
+            <span class="tag">海洋世界主题乐园</span>
+            <span class="tag">地铁8号线直达</span>
+        </div>
+        <div class="section-title">🚗 交通</div>
+        <ul>
+            <li><b>地铁</b>：8号线「小梅沙」站</li>
+            <li><b>公交</b>：103路、387路</li>
+            <li><b>自驾</b>：导航"小梅沙"</li>
+        </ul>
+        <div class="section-title">🏨 住宿</div>
+        <ul>
+            <li>小梅沙度假村酒店（全新装修，300-1500元/晚）</li>
+            <li>周边民宿公寓</li>
+        </ul>
+        <div class="section-title">🍽 美食</div>
+        <ul>
+            <li>度假区内餐厅（价格偏高）</li>
+            <li>海鲜自助餐厅</li>
+            <li>建议去盐田海鲜街吃更实惠</li>
+        </ul>
+        <div class="section-title">🎮 游玩项目</div>
+        <div class="tag-list">
+            <span class="tag green">游泳冲浪</span>
+            <span class="tag green">海洋世界</span>
+            <span class="tag green">潜水体验</span>
+            <span class="tag green">水上乐园</span>
+            <span class="tag green">海滨栈道</span>
+        </div>
+        <div class="warn">⚠️ 小梅沙海洋世界需购票入园，沙滩部分另收费。具体票价以官方公布为准。</div>
+    </div>
+    <a class="back-top" href="#top">↑ 返回目录</a>
+</div>
+
+<!-- ===== 较场尾 ===== -->
+<div class="place-card" id="jiaochangwei">
+    <div class="img-gallery">
+        <img class="place-img" src="images/04-较场尾/01.jpg" alt="较场尾1">
+        <img class="place-img" src="images/04-较场尾/02.jpg" alt="较场尾2">
+        <img class="place-img" src="images/04-较场尾/03.jpg" alt="较场尾3">
+    </div>
+    <div class="img-hint">← 滑动查看更多 →</div>
+    <div class="place-header">
+        <h2>四、较场尾</h2>
+        <span class="place-distance">📍 距市中心约60km · 车程1-1.5h</span>
+    </div>
+    <div class="place-body">
+        <div class="section-title">✅ 优点</div>
+        <div class="tag-list">
+            <span class="tag">深圳版"鼓浪屿"</span>
+            <span class="tag">300+特色民宿紧邻沙滩</span>
+            <span class="tag">紧邻大鹏所城古迹</span>
+            <span class="tag">免费沙滩</span>
+            <span class="tag">适合周末两日游</span>
+        </div>
+        <div class="section-title">🚗 交通</div>
+        <ul>
+            <li><b>自驾</b>：导航"较场尾"，有公共停车场（节假日爆满，建议停大鹏所城停车场步行过去）</li>
+            <li><b>公交</b>：E11到大鹏中心站（约1.5h），转M471到"较场尾"站（约20min），全程约2小时</li>
+            <li><b>提醒</b>：5-10月周末和节假日大鹏半岛实行交通管制，需预约通行</li>
+        </ul>
+        <div class="section-title">🏨 住宿</div>
+        <ul>
+            <li>300+家特色民宿（文艺/海洋/北欧/日式/智能风格）</li>
+            <li>平日200-500元/晚，周末500-1200元/晚，节假日1000-2000元/晚</li>
+            <li>推荐选一线海景房，提前1-2周预订</li>
+            <li>新开民宿推荐：海棠裏观海民宿（2024新开，全屋智能）</li>
+        </ul>
+        <div class="section-title">🍽 美食</div>
+        <ul>
+            <li>较场尾美食街（烤生蚝、椰子鸡、窑鸡）</li>
+            <li>大鹏所城内客家菜（推荐客家盆菜、酿豆腐）</li>
+            <li>海鲜大排档（建议确认价格再点单，避免被宰）</li>
+            <li>文艺咖啡馆、音乐餐吧</li>
+        </ul>
+        <div class="section-title">🎮 游玩项目</div>
+        <div class="tag-list">
+            <span class="tag green">沙滩玩水拍照</span>
+            <span class="tag green">沙滩排球足球</span>
+            <span class="tag green">摩托艇/帆船</span>
+            <span class="tag green">大鹏所城(免费)</span>
+            <span class="tag green">酒吧街</span>
+            <span class="tag green">寄明信片</span>
+        </div>
+        <div class="warn">⚠️ 避坑：1）海鲜先问价再吃；2）节假日停车极难，建议公交或早到；3）沙滩水质一般，主要玩氛围而非水质。</div>
+    </div>
+    <a class="back-top" href="#top">↑ 返回目录</a>
+</div>
+
+<!-- ===== 杨梅坑 ===== -->
+<div class="place-card" id="yangmeikeng">
+    <div class="img-gallery">
+        <img class="place-img" src="images/05-杨梅坑/01.jpg" alt="杨梅坑1">
+        <img class="place-img" src="images/05-杨梅坑/03.jpg" alt="杨梅坑2">
+    </div>
+    <div class="img-hint">← 滑动查看更多 →</div>
+    <div class="place-header">
+        <h2>五、杨梅坑</h2>
+        <span class="place-distance">📍 距市中心约65km · 车程1.5h</span>
+    </div>
+    <div class="place-body">
+        <div class="section-title">✅ 优点</div>
+        <div class="tag-list">
+            <span class="tag">广东最美海天公路</span>
+            <span class="tag">骑行天堂(5km海岸线)</span>
+            <span class="tag">《美人鱼》取景地</span>
+            <span class="tag">海水清澈</span>
+            <span class="tag">鹿嘴山庄悬崖海景</span>
+        </div>
+        <div class="section-title">🚗 交通</div>
+        <ul>
+            <li><b>自驾</b>：导航"杨梅坑停车场"，停车费约20-30元</li>
+            <li><b>公交</b>：E11到南澳街道（约2h），转M274终点站即到，全程约2.5小时</li>
+            <li>5-10月周末节假日需预约车辆通行</li>
+        </ul>
+        <div class="section-title">🏨 住宿</div>
+        <ul>
+            <li>鹿嘴山庄（悬崖海景房，500-1500/晚，需提前抢）</li>
+            <li>杨梅坑周边少量民宿</li>
+            <li>建议住南澳镇或较场尾更方便</li>
+        </ul>
+        <div class="section-title">🍽 美食</div>
+        <ul>
+            <li>杨梅坑码头附近海鲜餐厅（现捞现做，推荐清蒸石斑、白灼虾）</li>
+            <li>价格比市区贵30-50%，<b>一定要先看菜单问价格</b></li>
+            <li>建议方案：南澳水头海鲜街吃海鲜（性价比更高）</li>
+        </ul>
+        <div class="section-title">🎮 游玩项目</div>
+        <div class="tag-list">
+            <span class="tag green">海边骑行(30元/h起)</span>
+            <span class="tag green">鹿嘴山庄徒步</span>
+            <span class="tag green">浮潜/深潜</span>
+            <span class="tag green">快艇出海</span>
+            <span class="tag green">海边栈道徒步</span>
+            <span class="tag green">露营看星空</span>
+        </div>
+        <div class="warn">⚠️ 骑行Tips：1）杨梅坑码头起点租车，双人自行车约30元/h，电动车约50元/h；2）全程约5km到鹿嘴山庄方向，左边青山右边大海；3）下午3点后去可避开烈日。</div>
+    </div>
+    <a class="back-top" href="#top">↑ 返回目录</a>
+</div>
+
+<!-- ===== 桔钓沙 ===== -->
+<div class="place-card" id="judiaosha">
+    <div class="img-gallery">
+        <img class="place-img" src="images/06-桔钓沙/01.jpg" alt="桔钓沙1">
+        <img class="place-img" src="images/06-桔钓沙/02.jpg" alt="桔钓沙2">
+    </div>
+    <div class="img-hint">← 滑动查看更多 →</div>
+    <div class="place-header">
+        <h2>六、桔钓沙</h2>
+        <span class="place-distance">📍 距市中心约65km · 车程1.5h</span>
+    </div>
+    <div class="place-body">
+        <div class="section-title">✅ 优点</div>
+        <div class="tag-list">
+            <span class="tag">深圳"玻璃海"天花板</span>
+            <span class="tag">沙白如面粉</span>
+            <span class="tag">三面环山月牙湾</span>
+            <span class="tag">免费开放全天24h</span>
+            <span class="tag">大鹏水质最佳</span>
+        </div>
+        <div class="section-title">🚗 交通</div>
+        <ul>
+            <li><b>自驾</b>：导航"桔钓沙"，停车费20-30元</li>
+            <li><b>公交</b>：M274路"桔钓沙"站（需先坐E11到南澳，全程约2.5小时）</li>
+            <li>周末需在早上到达，否则可能限流</li>
+        </ul>
+        <div class="section-title">🏨 住宿</div>
+        <ul>
+            <li>桔钓沙附近度假民宿（推窗见海型，500-1000元/晚）</li>
+            <li>露营可行（无需帐篷费，但条件简单）</li>
+            <li>杨梅坑/南澳住宿更多选择</li>
+        </ul>
+        <div class="section-title">🍽 美食</div>
+        <ul>
+            <li>沙滩附近少量餐厅（现捞皮皮虾等）</li>
+            <li>可自带食物野餐/烧烤</li>
+            <li>南澳水头海鲜街（车程约10分钟）</li>
+        </ul>
+        <div class="section-title">🎮 游玩项目</div>
+        <div class="tag-list">
+            <span class="tag green">游泳浮潜</span>
+            <span class="tag green">摩托艇</span>
+            <span class="tag green">沙滩野餐</span>
+            <span class="tag green">赶海拾贝</span>
+            <span class="tag green">日落摄影</span>
+            <span class="tag green">桔钓沙→鹿嘴山庄徒步(7.5km)</span>
+        </div>
+        <div class="warn">⚠️ 小红书热门Tips：1）蓝色跑道和沙滩中段拍照最出片；2）带浮潜面镜可看到小鱼；3）建议穿溯溪鞋，礁石区扎脚。</div>
+    </div>
+    <a class="back-top" href="#top">↑ 返回目录</a>
+</div>
+
+<!-- ===== 官湖村 ===== -->
+<div class="place-card" id="guanhu">
+    <div class="img-gallery">
+        <img class="place-img" src="images/07-官湖村/01.jpg" alt="官湖村1">
+        <img class="place-img" src="images/07-官湖村/02.jpg" alt="官湖村2">
+        <img class="place-img" src="images/07-官湖村/03.jpg" alt="官湖村3">
+    </div>
+    <div class="img-hint">← 滑动查看更多 →</div>
+    <div class="place-header">
+        <h2>七、官湖村</h2>
+        <span class="place-distance">📍 距市中心约60km · 车程1-1.5h</span>
+    </div>
+    <div class="place-body">
+        <div class="section-title">✅ 优点</div>
+        <div class="tag-list">
+            <span class="tag">深圳"小镰仓"</span>
+            <span class="tag">文艺清静人少</span>
+            <span class="tag">彩色房子出片</span>
+            <span class="tag">免费开放</span>
+            <span class="tag">适合慢生活</span>
+        </div>
+        <div class="section-title">🚗 交通</div>
+        <ul>
+            <li><b>自驾</b>：导航"官湖村"</li>
+            <li><b>公交</b>：E11到葵涌站（约1.5h），转M471到官湖村（约20min），全程约2小时</li>
+        </ul>
+        <div class="section-title">🏨 住宿</div>
+        <ul>
+            <li>海边设计感民宿（300-800元/晚）</li>
+            <li>数量有限（整个村不大），建议至少提前一周订</li>
+        </ul>
+        <div class="section-title">🍽 美食</div>
+        <ul>
+            <li>村内小餐馆（家常海鲜菜）</li>
+            <li>文艺咖啡馆（适合发呆）</li>
+            <li>南澳水头海鲜街（车程约5分钟，强烈推荐）</li>
+        </ul>
+        <div class="section-title">🎮 游玩项目</div>
+        <div class="tag-list">
+            <span class="tag green">海边散步拍照</span>
+            <span class="tag green">海边栈道</span>
+            <span class="tag green">皮划艇</span>
+            <span class="tag green">赶海捡贝壳</span>
+            <span class="tag green">发呆看书晒太阳</span>
+        </div>
+    </div>
+    <a class="back-top" href="#top">↑ 返回目录</a>
+</div>
+
+<!-- ===== 西涌 ===== -->
+<div class="place-card" id="xichong">
+    <div class="img-gallery">
+        <img class="place-img" src="images/08-西涌/01.jpg" alt="西涌1">
+        <img class="place-img" src="images/08-西涌/03.jpg" alt="西涌2">
+    </div>
+    <div class="img-hint">← 滑动查看更多 →</div>
+    <div class="place-header">
+        <h2>八、西涌（西冲）</h2>
+        <span class="place-distance">📍 距市中心约70km · 车程1.5-2h</span>
+    </div>
+    <div class="place-body">
+        <div class="section-title">✅ 优点</div>
+        <div class="tag-list">
+            <span class="tag">深圳最长天然沙滩(约5km)</span>
+            <span class="tag">沙质细软</span>
+            <span class="tag">海水好适合游泳</span>
+            <span class="tag">露营烧烤圣地</span>
+            <span class="tag">可看日出日落</span>
+        </div>
+        <div class="section-title">🚗 交通</div>
+        <ul>
+            <li><b>自驾</b>：导航"西涌景区"（有多个沙滩入口）</li>
+            <li><b>公交</b>：E11到南澳月亮湾站（约2h），换M232到西涌（约30min），全程约2.5小时</li>
+            <li>门票：成人28元/人，儿童14元/人，现场购票</li>
+        </ul>
+        <div class="section-title">🏨 住宿</div>
+        <ul>
+            <li>海边小木屋（最前排靠海最佳，200-600元/晚）</li>
+            <li>周边民宿客栈</li>
+            <li>露营区（自带帐篷即可）</li>
+            <li>节假日价格翻2-3倍</li>
+        </ul>
+        <div class="section-title">🍽 美食</div>
+        <ul>
+            <li>自带食材沙滩烧烤（最受欢迎）</li>
+            <li>窑鸡、烤全羊（团队聚会首选）</li>
+            <li>沙滩旁海鲜排档</li>
+        </ul>
+        <div class="section-title">🎮 游玩项目</div>
+        <div class="tag-list">
+            <span class="tag green">游泳冲浪</span>
+            <span class="tag green">沙滩烧烤篝火</span>
+            <span class="tag green">快艇/香蕉船</span>
+            <span class="tag green">情人岛登岛</span>
+            <span class="tag green">露营看星空</span>
+            <span class="tag green">东西涌穿越(最美徒步)</span>
+        </div>
+        <div class="warn">⚠️ Tips：1）住小木屋选最前排，起床直接看海；2）树林里木屋夏天蚊子多，备驱蚊水；3）有多个沙滩（1号-4号），2号沙滩配套最好。</div>
+    </div>
+    <a class="back-top" href="#top">↑ 返回目录</a>
+</div>
+
+<!-- ===== 东涌 ===== -->
+<div class="place-card" id="dongchong">
+    <div class="img-gallery">
+        <img class="place-img" src="images/09-东涌/01.jpg" alt="东涌1">
+        <img class="place-img" src="images/09-东涌/02.jpg" alt="东涌2">
+        <img class="place-img" src="images/09-东涌/03.jpg" alt="东涌3">
+    </div>
+    <div class="img-hint">← 滑动查看更多 →</div>
+    <div class="place-header">
+        <h2>九、东涌（东冲）</h2>
+        <span class="place-distance">📍 距市中心约70km · 车程约2h</span>
+    </div>
+    <div class="place-body">
+        <div class="section-title">✅ 优点</div>
+        <div class="tag-list">
+            <span class="tag">原生态未开发</span>
+            <span class="tag">人少清静</span>
+            <span class="tag">户外爱好者天堂</span>
+            <span class="tag">深圳看日出TOP1</span>
+        </div>
+        <div class="section-title">🚗 交通</div>
+        <ul>
+            <li><b>自驾</b>：导航"东涌沙滩"</li>
+            <li><b>公交</b>：E11到南澳（约2h），转M232，全程约2.5-3小时</li>
+        </ul>
+        <div class="section-title">🏨 住宿</div>
+        <ul>
+            <li>以露营为主，条件较原始</li>
+            <li>建议自带帐篷、防潮垫</li>
+            <li>也可住南澳镇上，次日早起赶去看日出</li>
+        </ul>
+        <div class="section-title">🍽 美食</div>
+        <ul>
+            <li>几乎无餐饮，<b>必须自带食物和水</b></li>
+            <li>可带简易炉具自己做</li>
+        </ul>
+        <div class="section-title">🎮 游玩项目</div>
+        <div class="tag-list">
+            <span class="tag green">东西涌穿越(4-5h)</span>
+            <span class="tag green">沙滩露营</span>
+            <span class="tag green">礁石探险</span>
+            <span class="tag green">浮潜</span>
+            <span class="tag green">海钓</span>
+            <span class="tag green">看日出(必体验)</span>
+        </div>
+        <div class="warn">⚠️ 东西涌穿越被《国家地理》评为中国最美十大徒步路线之一，全程约4-5小时，需穿溯溪鞋，注意潮汐，建议跟有经验的队伍。</div>
+    </div>
+    <a class="back-top" href="#top">↑ 返回目录</a>
+</div>
+
+<!-- ===== 小径湾 ===== -->
+<div class="place-card" id="xiaojingwan">
+    <div class="img-gallery">
+        <img class="place-img" src="images/10-小径湾/01.jpg" alt="小径湾1">
+        <img class="place-img" src="images/10-小径湾/02.jpg" alt="小径湾2">
+        <img class="place-img" src="images/10-小径湾/03.jpg" alt="小径湾3">
+    </div>
+    <div class="img-hint">← 滑动查看更多 →</div>
+    <div class="place-header">
+        <h2>十、小径湾</h2>
+        <span class="place-distance">📍 距市中心约80km · 车程1-1.5h · 有公交直达</span>
+    </div>
+    <div class="place-body">
+        <div class="section-title">✅ 优点</div>
+        <div class="tag-list">
+            <span class="tag">1.5km铂金沙滩</span>
+            <span class="tag">华润高端配套</span>
+            <span class="tag">艾美酒店(万豪旗下)</span>
+            <span class="tag">深圳有公交直达(3元)</span>
+            <span class="tag">免费沙滩</span>
+            <span class="tag">商业街完善</span>
+        </div>
+        <div class="section-title">🚗 交通</div>
+        <ul>
+            <li><b>公交</b>：深圳沙田地铁站乘268路直达（约1.5h），每15分钟一班，仅3元！</li>
+            <li><b>楼巴</b>：罗湖/福田/南山有楼巴专线，约1.5-2小时</li>
+            <li><b>高铁</b>：深圳北→惠州南站(40min)，打车到酒店约20min</li>
+            <li><b>自驾</b>：约1-1.5小时，免费停车位充足（约130个）</li>
+        </ul>
+        <div class="section-title">🏨 住宿</div>
+        <ul>
+            <li>高端：小径湾艾美酒店（万豪旗下，800-2000元/晚，私属海滩+无边泳池）</li>
+            <li>中端：观海轩/碧桂园度假公寓（200-600元/晚，高评分房源）</li>
+            <li>经济：周边民宿（150-300元/晚）</li>
+        </ul>
+        <div class="section-title">🍽 美食</div>
+        <ul>
+            <li>小径湾商业街美食中心（海鲜餐厅聚集）</li>
+            <li>79号渔港海鲜餐厅（沙滩海景位，推荐）</li>
+            <li>唐人街海鲜连锁（性价比高）</li>
+            <li>艾美酒店·悦海荟（高端粤菜海鲜）</li>
+            <li><b>省钱吃法</b>：去霞涌海鲜市场买海鲜找餐厅加工（车程10分钟）</li>
+        </ul>
+        <div class="section-title">🎮 游玩项目</div>
+        <div class="tag-list">
+            <span class="tag green">沙滩戏水游泳</span>
+            <span class="tag green">海边栈道(2km)</span>
+            <span class="tag green">商业街逛吃</span>
+            <span class="tag green">皮划艇/帆板</span>
+            <span class="tag green">亲子挖沙</span>
+            <span class="tag green">日落摄影</span>
+            <span class="tag green">酒店无边泳池</span>
+        </div>
+        <div class="warn">⚠️ 实测建议：1）工作日或淡季周末体验最佳，旺季人多；2）住宿优先选艾美或观海轩高分房源；3）务必留半天去霞涌市场买海鲜加工；4）带娃查好潮汐表安排赶海。</div>
+    </div>
+    <a class="back-top" href="#top">↑ 返回目录</a>
+</div>
+
+<!-- ===== 霞涌黄金海岸 ===== -->
+<div class="place-card" id="xiayong">
+    <div class="img-gallery">
+        <img class="place-img" src="images/11-霞涌黄金海岸/01.jpg" alt="霞涌1">
+        <img class="place-img" src="images/11-霞涌黄金海岸/03.jpg" alt="霞涌2">
+    </div>
+    <div class="img-hint">← 滑动查看更多 →</div>
+    <div class="place-header">
+        <h2>十一、霞涌黄金海岸</h2>
+        <span class="place-distance">📍 距市中心约75km · 车程1-1.5h</span>
+    </div>
+    <div class="place-body">
+        <div class="section-title">✅ 优点</div>
+        <div class="tag-list">
+            <span class="tag">沙白水蓝</span>
+            <span class="tag">免费预约入场</span>
+            <span class="tag">霞涌海鲜市场超便宜</span>
+            <span class="tag">彩虹屋打卡点(2024新)</span>
+            <span class="tag">人比巽寮湾少很多</span>
+            <span class="tag">省级旅游度假区</span>
+        </div>
+        <div class="section-title">🚗 交通</div>
+        <ul>
+            <li><b>自驾</b>：导航"大亚湾黄金海岸"，约1-1.5小时</li>
+            <li><b>公交</b>：大亚湾188路、189路至"霞涌黄金海岸东门（乌山头）"（需先到大亚湾，全程约2-2.5小时）</li>
+            <li>免费预约入园（旺季需预约）</li>
+        </ul>
+        <div class="section-title">🏨 住宿</div>
+        <ul>
+            <li>维也纳酒店黄金海岸店（毗邻海岸线50米）</li>
+            <li>星河洲酒店（步行可达沙滩，性价比高）</li>
+            <li>海景公寓（200-600元/晚）</li>
+        </ul>
+        <div class="section-title">🍽 美食</div>
+        <ul>
+            <li><b>霞涌海鲜市场</b>（重点推荐！买海鲜+餐厅加工，人均50-80吃撑）</li>
+            <li>加工推荐：白灼15元/份、爆炒20元/份</li>
+            <li>海韵广场周边美食街</li>
+            <li>推荐：鱼露鸭、白灼泥虾、椒盐濑尿虾、清蒸石斑</li>
+        </ul>
+        <div class="section-title">🎮 游玩项目</div>
+        <div class="tag-list">
+            <span class="tag green">沙滩戏水</span>
+            <span class="tag green">乌山头绿道骑行(2km)</span>
+            <span class="tag green">包禾塘彩虹屋拍照</span>
+            <span class="tag green">螺岛公园</span>
+            <span class="tag green">海韵广场</span>
+            <span class="tag green">赶海</span>
+            <span class="tag green">看日落</span>
+        </div>
+        <div class="warn">⚠️ Tips：1）建议下午4点半后进场，不会太晒；2）与小径湾相邻，可串联游玩；3）周边无遮挡，注意防晒；4）门口有拖鞋和游泳圈售卖。</div>
+    </div>
+    <a class="back-top" href="#top">↑ 返回目录</a>
+</div>
+
+<!-- ===== 巽寮湾 ===== -->
+<div class="place-card" id="xunliaowan">
+    <div class="img-gallery">
+        <img class="place-img" src="images/12-巽寮湾/01.jpg" alt="巽寮湾1">
+        <img class="place-img" src="images/12-巽寮湾/02.jpg" alt="巽寮湾2">
+        <img class="place-img" src="images/12-巽寮湾/03.jpg" alt="巽寮湾3">
+    </div>
+    <div class="img-hint">← 滑动查看更多 →</div>
+    <div class="place-header">
+        <h2>十二、巽寮湾</h2>
+        <span class="place-distance">📍 距市中心约100km · 车程1.5-2h</span>
+    </div>
+    <div class="place-body">
+        <div class="section-title">✅ 优点</div>
+        <div class="tag-list">
+            <span class="tag">粤东最洁净海湾之一</span>
+            <span class="tag">配套最成熟</span>
+            <span class="tag">酒店选择多</span>
+            <span class="tag">适合亲子/团队</span>
+            <span class="tag">有三角洲岛</span>
+        </div>
+        <div class="section-title">🚗 交通</div>
+        <ul>
+            <li><b>自驾</b>：沈海高速，约1.5-2小时</li>
+            <li><b>高铁</b>：深圳北→惠东站，转车约30分钟</li>
+            <li><b>大巴</b>：深圳各汽车站有直达巽寮湾大巴（约2.5-3小时）</li>
+        </ul>
+        <div class="section-title">🏨 住宿</div>
+        <ul>
+            <li>高端：喜来登、凯宾斯基（800-2000+/晚）</li>
+            <li>中端：度假公寓（200-600元/晚）</li>
+            <li>经济：民宿/青旅（100-300元/晚）</li>
+        </ul>
+        <div class="section-title">🍽 美食</div>
+        <ul>
+            <li>天后宫美食一条街（最热闹）</li>
+            <li>招牌必吃：海胆炒饭、马鲛鱼饼、清蒸石斑</li>
+            <li>铁涌生蚝（超级肥美，人均80-200）</li>
+            <li>跨海大桥左拐下的海边餐厅（人均60-120）</li>
+            <li>客家小炒（不吃海鲜的备选）</li>
+        </ul>
+        <div class="section-title">🎮 游玩项目</div>
+        <div class="tag-list">
+            <span class="tag green">游泳</span>
+            <span class="tag green">快艇/帆船</span>
+            <span class="tag green">三角洲岛(潜水垂钓)</span>
+            <span class="tag green">天后宫祈福</span>
+            <span class="tag green">海滨温泉</span>
+            <span class="tag green">出海捕鱼体验</span>
+        </div>
+        <div class="warn">⚠️ 避坑：1）节假日人巨多，建议错峰；2）沙滩有人拉你坐快艇，先谈好价格；3）海鲜排档靠近景区的较贵，往天后宫方向走更实惠；4）巽寮湾和双月湾相距28公里，可串联游玩。</div>
+    </div>
+    <a class="back-top" href="#top">↑ 返回目录</a>
+</div>
+
+<!-- ===== 双月湾 ===== -->
+<div class="place-card" id="shuangyuewan">
+    <div class="img-gallery">
+        <img class="place-img" src="images/13-双月湾/01.jpg" alt="双月湾1">
+        <img class="place-img" src="images/13-双月湾/02.jpg" alt="双月湾2">
+        <img class="place-img" src="images/13-双月湾/03.jpg" alt="双月湾3">
+    </div>
+    <div class="img-hint">← 滑动查看更多 →</div>
+    <div class="place-header">
+        <h2>十三、双月湾</h2>
+        <span class="place-distance">📍 距市中心约110km · 车程2-2.5h</span>
+    </div>
+    <div class="place-body">
+        <div class="section-title">✅ 优点</div>
+        <div class="tag-list">
+            <span class="tag">双月形海湾(震撼航拍)</span>
+            <span class="tag">水质优于巽寮湾</span>
+            <span class="tag">观景台俯瞰全景</span>
+            <span class="tag">有蓝眼泪(季节性)</span>
+            <span class="tag">一湾静一湾涌</span>
+            <span class="tag">性价比高</span>
+        </div>
+        <div class="section-title">🚗 交通</div>
+        <ul>
+            <li><b>自驾</b>：沈海高速→S356，约2-2.5小时</li>
+            <li><b>高铁</b>：到惠东站后打车约40分钟</li>
+            <li>在巽寮湾往南28公里，必经巽寮湾可顺路玩</li>
+        </ul>
+        <div class="section-title">🏨 住宿</div>
+        <ul>
+            <li>泰丽云顶度假酒店（私人海滩，高端首选）</li>
+            <li>万科双月湾公寓（海景阳台，300-800元/晚）</li>
+            <li>西班牙小镇附近民宿（150-400元/晚）</li>
+        </ul>
+        <div class="section-title">🍽 美食</div>
+        <ul>
+            <li><b>港口海上市场</b>（本地人推荐！买海鲜自己加工最划算）</li>
+            <li>益群饭店（加工费：白灼15元/份，爆炒20元/份）</li>
+            <li>买海鲜记得砍价，不熟悉的品种别买</li>
+            <li>礁石酒吧（氛围感打卡拍照）</li>
+        </ul>
+        <div class="section-title">🎮 游玩项目</div>
+        <div class="tag-list">
+            <span class="tag green">观景台(必去!俯瞰双月)</span>
+            <span class="tag green">牛头岭看日出</span>
+            <span class="tag green">游泳(左湾平静)</span>
+            <span class="tag green">沙滩摩托</span>
+            <span class="tag green">出海捕鱼</span>
+            <span class="tag green">海龟湾保护区</span>
+            <span class="tag green">蓝眼泪(4-6月)</span>
+        </div>
+        <div class="warn">⚠️ 蓝眼泪观赏：主要出现在4-6月，万科沙滩、海龟湾附近、情人堤是集中观赏区。需天黑后海浪拍打时最明显。</div>
+    </div>
+    <a class="back-top" href="#top">↑ 返回目录</a>
+</div>
+
+<!-- ===== 盐洲岛 ===== -->
+<div class="place-card" id="yanzhoudao">
+    <div class="img-gallery">
+        <img class="place-img" src="images/14-盐洲岛/01.jpg" alt="盐洲岛1">
+        <img class="place-img" src="images/14-盐洲岛/02.jpg" alt="盐洲岛2">
+        <img class="place-img" src="images/14-盐洲岛/03.jpg" alt="盐洲岛3">
+    </div>
+    <div class="img-hint">← 滑动查看更多 →</div>
+    <div class="place-header">
+        <h2>十四、盐洲岛</h2>
+        <span class="place-distance">📍 距市中心约110km · 车程约2h</span>
+    </div>
+    <div class="place-body">
+        <div class="section-title">✅ 优点</div>
+        <div class="tag-list">
+            <span class="tag">原生态海岛小镇</span>
+            <span class="tag">摄影天堂</span>
+            <span class="tag">玄武岩海滩地貌</span>
+            <span class="tag">万只白鹭归巢(壮观)</span>
+            <span class="tag">红树林湿地公园</span>
+            <span class="tag">人少小众</span>
+        </div>
+        <div class="section-title">🚗 交通</div>
+        <ul>
+            <li><b>自驾</b>：导航"盐洲岛游客中心"，深圳约2小时，过桥即到，免费停车</li>
+            <li><b>公共交通</b>：高铁到惠州南站（40min）→大巴到黄埠镇（约1h）→打车进岛，全程约2.5-3小时</li>
+            <li>岛内租电动车约50元/天（强烈推荐）</li>
+        </ul>
+        <div class="section-title">🏨 住宿</div>
+        <ul>
+            <li>海边渔家民宿（100-400元/晚）</li>
+            <li>条件较简朴，建议自带洗漱用品</li>
+            <li>适合对住宿不挑的摄影/户外爱好者</li>
+        </ul>
+        <div class="section-title">🍽 美食</div>
+        <ul>
+            <li>渔家海鲜（新鲜实惠，村里饭馆）</li>
+            <li>当地特产：咸鱼、虾干（可带手信）</li>
+            <li>选择不多，建议自带零食补给</li>
+        </ul>
+        <div class="section-title">🎮 游玩项目</div>
+        <div class="tag-list">
+            <span class="tag green">滩涂日出日落摄影</span>
+            <span class="tag green">红树林观白鹭归巢</span>
+            <span class="tag green">玄武岩海滩探险</span>
+            <span class="tag green">四滩徒步穿越</span>
+            <span class="tag green">赶海拾贝</span>
+            <span class="tag green">海边露营</span>
+        </div>
+        <div class="warn">⚠️ Tips：1）傍晚5-6点去红树林湿地公园看白鹭归巢最壮观（万只级别）；2）玄武岩海滩在岛南端；3）四个海滩串联徒步约3-4小时。</div>
+    </div>
+    <a class="back-top" href="#top">↑ 返回目录</a>
+</div>
+
+<!-- ===== 按需推荐 ===== -->
+<div class="place-card">
+    <div class="place-header">
+        <h2>📋 按需求选择</h2>
+    </div>
+    <div class="place-body">
+        <table class="rec-table">
+            <tr><th>需求</th><th>推荐地点</th></tr>
+            <tr><td>👨‍👩‍👧 亲子游</td><td>小径湾、大梅沙、巽寮湾</td></tr>
+            <tr><td>💑 情侣约会</td><td>杨梅坑、官湖村、双月湾</td></tr>
+            <tr><td>👫 朋友聚会</td><td>西涌(烧烤露营)、较场尾(民宿Party)</td></tr>
+            <tr><td>🥾 户外探险</td><td>东西涌穿越、盐洲岛徒步</td></tr>
+            <tr><td>📷 摄影打卡</td><td>盐洲岛、深圳湾日落、杨梅坑、官湖村</td></tr>
+            <tr><td>💰 省钱之选</td><td>大梅沙(免费)、桔钓沙(免费)、深圳湾(免费)、霞涌(免费)</td></tr>
+            <tr><td>🏨 高端度假</td><td>小径湾艾美、巽寮湾五星、双月湾泰丽</td></tr>
+            <tr><td>🧘 人少清静</td><td>东涌、官湖村、盐洲岛</td></tr>
+            <tr><td>🚌 公交直达</td><td>深圳湾、大梅沙、小梅沙、小径湾(268路)</td></tr>
+            <tr><td>🦐 吃海鲜</td><td>霞涌海鲜市场、双月湾港口市场、南澳水头街</td></tr>
+        </table>
+    </div>
+</div>
+
+<!-- ===== Tips ===== -->
+<div class="tips-card">
+    <h2>💡 出行实用Tips</h2>
+    <ul>
+        <li><b>最佳时间</b>：5-6月和9-10月（人少水清天气好）</li>
+        <li><b>防晒</b>：SPF50+防水防晒霜 + 遮阳帽 + 墨镜（必备！）</li>
+        <li><b>防蚊</b>：海边蚊虫多，驱蚊水/驱蚊贴必带</li>
+        <li><b>交通管制</b>：大鹏半岛5-10月周末节假日需预约车辆通行</li>
+        <li><b>错峰</b>：节假日价格翻2-3倍且极堵，尽量工作日或错峰</li>
+        <li><b>安全</b>：注意潮汐时间表，不在无救生员区域游泳</li>
+        <li><b>装备</b>：浮潜面镜自带（卫生）、溯溪鞋（礁石区必备）</li>
+        <li><b>海鲜</b>：去海鲜市场买+找餐厅加工，比直接点菜省50%以上</li>
+        <li><b>防宰</b>：任何消费先问价/看菜单再决定，尤其海鲜和水上项目</li>
+    </ul>
+</div>
+
+<!-- ===== 行程组合 ===== -->
+<div class="place-card">
+    <div class="place-header">
+        <h2>🗺 行程组合建议</h2>
+    </div>
+    <div class="place-body">
+        <div class="section-title">一日游</div>
+        <ul>
+            <li><b>城市休闲</b>：深圳湾公园骑行看日落 → 蛇口海上世界晚餐</li>
+            <li><b>亲子轻松</b>：小径湾沙滩 + 商业街（公交直达）</li>
+            <li><b>骑行戏水</b>：杨梅坑骑行 + 桔钓沙游泳</li>
+            <li><b>吃海鲜</b>：霞涌黄金海岸 + 霞涌海鲜市场</li>
+        </ul>
+        <div class="section-title">两日游</div>
+        <ul>
+            <li><b>大鹏经典</b>：Day1 较场尾+大鹏所城 → Day2 杨梅坑骑行+桔钓沙</li>
+            <li><b>惠州海岸</b>：Day1 小径湾度假 → Day2 霞涌海鲜+黄金海岸</li>
+            <li><b>双湾之旅</b>：Day1 巽寮湾 → Day2 双月湾观景台+港口市场</li>
+            <li><b>露营体验</b>：Day1 西涌沙滩烧烤露营 → Day2 东西涌穿越</li>
+        </ul>
+        <div class="section-title">三日游</div>
+        <ul>
+            <li>Day1：较场尾民宿+大鹏所城</li>
+            <li>Day2：杨梅坑骑行+桔钓沙浮潜</li>
+            <li>Day3：西涌沙滩+东西涌徒步</li>
+        </ul>
+    </div>
+</div>
+
+<div class="footer">
+    <p>📌 信息综合自小红书、携程、知乎等平台用户分享，更新至2025年5月</p>
+    <p>出行前建议再次确认门票及开放时间</p>
+    <p style="margin-top:10px">祝大家玩得开心！🌊☀️🏖</p>
+</div>
+
+</div>
+
+<footer style="text-align:center; padding:30px 20px; color:#666; font-size:0.9em; border-top:1px solid #e0e0e0; margin-top:40px;">
+    <p>作者：朱俊 Aaron</p>
+    <p><a href="https://github.com/zhujun8000520" target="_blank" style="color:#0077b6;">GitHub: zhujun8000520</a></p>
+</footer>
+</body>
+</html>
